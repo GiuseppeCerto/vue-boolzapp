@@ -52,12 +52,14 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="row position-relative py-2 px-2">
+                                <div class="row position-relative py-2 px-2"
+                                
+                                    v-for="(contactData,index) in contact">
                                     <div class="col-1 d-flex align-items-center me-4">
-                                        <img class="image_contact" src="./img/people1.png" alt="profile utent">
+                                        <img class="image_contact" :src=contactData.avatar alt="profile utent">
                                     </div>
                                     <div class="col-9 d-flex flex-column text_notification justify-content-center ms-2">
-                                        <span>Nome Utente</span>
+                                        <span>{{contactData.name}}</span>
                                         <span class="text-secondary">Ultimo messaggio inviato</span>
                                         <span class="position-absolute text-secondary time_message">12:00</span>
                                     </div>
@@ -83,21 +85,25 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="row py-2 px-2 message_section">
-                                    <div class="col-12 d-flex justify-content-end utent_message_section">
-                                        <div class="row justify-content-start">
-                                            <div class="col-12 d-flex flex-column pt-2 message_style">
-                                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas iste, ab excepturi iusto placeat rem dicta reprehenderit perferendis eos at?
+                                <div class="row d-block justify-content-end py-5 px-4 message_section">
+                                    <div class="col-12 d-flex justify-content-end px-5 py-2 utent_message_section">
+                                        <div class="row justify-content-end flex-column">
+                                            <div class="col-12 d-flex flex-column pt-2 contact_message_style mb-2"
+
+                                                v-for="(contactData,index) in contact">
+
+                                                <span>{{contactData.messagges.message}}</span> 
                                                 <div class="col-12 text-end mb-2 message_time">
+
                                                     12:20
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 d-flex justify-content-start utent_message_section">
+                                    <div class="col-12 d-flex justify-content-start px-5 py-2 utent_message_section">
                                         <div class="row justify-content-start">
-                                            <div class="col-12 d-flex flex-column pt-2 message_style">
-                                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas iste, ab excepturi iusto placeat rem dicta reprehenderit perferendis eos at?
+                                            <div class="col-12 d-flex flex-column pt-2 message_style mb-2">
+                                                Lorem ipsum dolor sit, amet crendis eos at?
                                                 <div class="col-12 text-end mb-2 message_time">
                                                     12:20
                                                 </div>
@@ -108,9 +114,17 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="col-2"></div>
-                                <div class="col-10"></div>
-                                <div class="col-2"></div>
+                                <div class="row align-items-center write_message_section py-2">
+                                    <div class="col-1 text-center">
+                                        <i class="fa-regular fa-face-smile"></i>
+                                    </div>
+                                    <div class="col-10 px-0">
+                                        <input type="text" class="form-control text-secondary" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="col-1 text-center">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -119,5 +133,6 @@
  		</div>
 
  		<script src="./js/app.js"></script>
+
  	</body>
  </html>

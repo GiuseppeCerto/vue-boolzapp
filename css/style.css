@@ -81,6 +81,12 @@
     font-size: 10px;
 }
 
+/* MAIN CONTENT */
+
+.main-content_section{
+    border-left: 1px solid rgba(214,213,211,255);
+}
+
 .header_main-content{
     background-color: rgba(234,234,234,255);
     border-left: 1px solid rgba(216,216,216,255);
@@ -100,12 +106,23 @@
     height: fit-content;
 }
 
+.contact_message_section{
+    height: fit-content;
+}
+
+.contact_message_style{
+    background-color: rgba(213,249,186,255);
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 280px;
+}
+
 .message_style{
     background-color: white;
     height: fit-content;
     border-radius: 10px;
-    max-width: 260px;
     margin: 0 auto;
+    width: 280px;
 }
 
 .message_text{
@@ -115,5 +132,8 @@
 .message_time{
     font-size: 10px;
     height: fit-content;
-    
+}
+
+.write_message_section{
+    background-color: rgba(243,238,234,255);
 }
