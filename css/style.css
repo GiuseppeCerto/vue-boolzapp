@@ -24,6 +24,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-49%, -50%);
+    border: 3px solid rgb(191, 185, 185);
 }
 
 .side-bar_section{
@@ -92,4 +93,27 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    align-items: normal;
+}
+
+.utent_message_section{
+    height: fit-content;
+}
+
+.message_style{
+    background-color: white;
+    height: fit-content;
+    border-radius: 10px;
+    max-width: 260px;
+    margin: 0 auto;
+}
+
+.message_text{
+    height: fit-content;
+}
+
+.message_time{
+    font-size: 10px;
+    height: fit-content;
+    
 }
