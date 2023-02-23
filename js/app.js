@@ -75,7 +75,6 @@ createApp({
 
             currentContact: 0,
 
-
 		}
 	},
 

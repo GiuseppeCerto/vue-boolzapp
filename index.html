@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="row position-relative py-2 px-2"
+                                <div class="row position-relative py-2 px-2 contact_selection"
                                 
                                     v-for="(contactData,index) in contact">
                                     <div class="col-1 d-flex align-items-center me-4">
@@ -73,8 +73,9 @@
                                     <div class="col-1 d-flex align-items-center">
                                         <img class="image_contact" src="./img/people1.png" alt="profile utent">
                                     </div>
-                                    <div class="col-8 d-flex flex-column text_notification justify-content-center">
-                                        <span>Nome Utente</span>
+                                    <div class="col-8 d-flex flex-column text_notification justify-content-center"
+                                    v-for="(utentElement,index) in contact[currentContact].name">
+                                        <span>{{utentElement}}</span>
                                         <span class="text-secondary">Ultimo accesso alle 12:00</span>
                                     </div>
                                     <div class="col-3 text-secondary d-flex gap-3 justify-content-end align-items-center fs-5 pe-2">
@@ -85,34 +86,23 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="row d-block justify-content-end py-5 px-4 message_section">
-                                    <div class="col-12 d-flex justify-content-end px-5 py-2 utent_message_section">
-                                        <div class="row justify-content-end flex-column">
-                                            <div class="col-12 d-flex flex-column pt-2 contact_message_style mb-2"
+                                <div class="row d-flex flex-column py-3 justify-content-end px-4 message_section">
+                                    <div class="col-12 pt-2 mb-2"
 
-                                                v-for="(contactData,index) in contact">
+                                        v-for="(messageElement,index) in contact[currentContact].messagges"
+                                        :class="messageElement.status === 'sent' ? 'user_message' : 'contact_message'"
+                                        @click = >
+                                                
 
-                                                <span>{{contactData.messagges.message}}</span> 
-                                                <div class="col-12 text-end mb-2 message_time">
+                                        <span>{{messageElement.message}}</span> 
+                                        <div class="col-12 text-end mb-2 message_time">
 
-                                                    12:20
-                                                </div>
-                                            </div>
+                                            12:20
                                         </div>
                                     </div>
-                                    <div class="col-12 d-flex justify-content-start px-5 py-2 utent_message_section">
-                                        <div class="row justify-content-start">
-                                            <div class="col-12 d-flex flex-column pt-2 message_style mb-2">
-                                                Lorem ipsum dolor sit, amet crendis eos at?
-                                                <div class="col-12 text-end mb-2 message_time">
-                                                    12:20
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
                                 </div>
                             </div>
+
                             <div class="col-12">
                                 <div class="row align-items-center write_message_section py-2">
                                     <div class="col-1 text-center">
