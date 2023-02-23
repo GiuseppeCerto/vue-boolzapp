@@ -8,7 +8,7 @@ createApp({
                     name: 'Michele',
                     avatar: "./img/people2.png",
                     visibile: true,
-                    messagges: [
+                    messages: [
                         {
                             date: '10/01/2020 15:30:55',
                             message: 'Hai portato a spasso il cane?',
@@ -30,7 +30,7 @@ createApp({
                     name: 'Fabio',
                     avatar: './img/people3.png',
                     visibile: true,
-                    messagges:[
+                    messages:[
                         {
                             date: '20/03/2020 16:30:00',
                             message: 'Ciao come stai?',
@@ -53,7 +53,7 @@ createApp({
                     name: 'Samuele',
                     avatar: './img/people4.png',
                     visibile: true,
-                    messagges: [
+                    messages: [
                         {
                             date: '28/03/2020 10:10:40',
                             message: 'La Marianna va in campagna',
@@ -73,14 +73,36 @@ createApp({
                 },
             ],
 
-            currentContact: 0,
+            selectedIndex: null,
+
+            selectedMessages: [],
+
+            newMessage: '',
 
 		}
 	},
 
 	methods: {
 
+        saveIndex(index) {
+            this.selectedIndex = index;
+            this.selectedMessages = this.contact[index].messages;
+        },
 
+        sendMessage() {
+            if (this.newMessage != '') {
+                const newMessage = {
+                    message: this.newMessage,
+                    status: 'sent',
+                };
+                this.selectedMessages.push(newMessage);
+                this.newMessage = '';
+
+            }
+            
+        }
+    
+        
     },
 
 }).mount('#app')

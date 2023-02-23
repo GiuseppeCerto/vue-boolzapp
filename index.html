@@ -54,7 +54,8 @@
                             <div class="col-12">
                                 <div class="row position-relative py-2 px-2 contact_selection"
                                 
-                                    v-for="(contactData,index) in contact">
+                                    v-for="(contactData,index) in contact"
+                                    @click="saveIndex(index)">
                                     <div class="col-1 d-flex align-items-center me-4">
                                         <img class="image_contact" :src=contactData.avatar alt="profile utent">
                                     </div>
@@ -73,9 +74,8 @@
                                     <div class="col-1 d-flex align-items-center">
                                         <img class="image_contact" src="./img/people1.png" alt="profile utent">
                                     </div>
-                                    <div class="col-8 d-flex flex-column text_notification justify-content-center"
-                                    v-for="(utentElement,index) in contact[currentContact].name">
-                                        <span>{{utentElement}}</span>
+                                    <div class="col-8 d-flex flex-column text_notification justify-content-center">
+                                        <span>Nome Utente</span>
                                         <span class="text-secondary">Ultimo accesso alle 12:00</span>
                                     </div>
                                     <div class="col-3 text-secondary d-flex gap-3 justify-content-end align-items-center fs-5 pe-2">
@@ -88,18 +88,14 @@
                             <div class="col-12">
                                 <div class="row d-flex flex-column py-3 justify-content-end px-4 message_section">
                                     <div class="col-12 pt-2 mb-2"
-
-                                        v-for="(messageElement,index) in contact[currentContact].messagges"
-                                        :class="messageElement.status === 'sent' ? 'user_message' : 'contact_message'"
-                                        @click = >
-                                                
-
-                                        <span>{{messageElement.message}}</span> 
-                                        <div class="col-12 text-end mb-2 message_time">
-
-                                            12:20
-                                        </div>
+                                    v-for="(messageElement,index) in selectedMessages"
+                                    :class="messageElement.status === 'sent' ? 'user_message' : 'contact_message'">
+                                    <span>{{messageElement.message}}</span> 
+                                    <div class="col-12 text-end mb-2 message_time">
+                                        {{messageElement.time}}
                                     </div>
+                                </div>
+                                
                                 </div>
                             </div>
 
@@ -109,7 +105,9 @@
                                         <i class="fa-regular fa-face-smile"></i>
                                     </div>
                                     <div class="col-10 px-0">
-                                        <input type="text" class="form-control text-secondary" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input type="text" class="form-control text-secondary" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1"
+                                        v-model="newMessage"
+                                        @keydown.enter="sendMessage">
                                     </div>
                                     <div class="col-1 text-center">
                                         <i class="fa-solid fa-magnifying-glass"></i>
